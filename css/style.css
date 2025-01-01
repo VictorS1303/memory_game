@@ -1,0 +1,79 @@
+.container.cards-container
+{
+    outline: 2px solid #fff;
+    height: 500px;
+    width: 800px;
+}
+
+.container.cards-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 800px;
+}
+
+.card.memory-card
+{
+    background-color: transparent;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    border-radius: var(--base-border-radius);
+    cursor: pointer;
+    
+    & .memory-card-inner
+    {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        border-radius: inherit;
+    }
+
+    & .memory-card-inner.selected
+    {
+        transform: rotateY(180deg);
+    }
+
+    .memory-card-inner
+    {
+        & .memory-card-front, & .memory-card-back
+        {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: inherit;
+            
+        }
+
+
+        & .memory-card-back img
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 75px;
+            width: 75px;
+        }
+    }
+
+    & .memory-card-front
+    {
+        background-color: royalblue;
+        z-index: 100;
+    }
+
+    & .memory-card-back
+    {
+        background-color: royalblue;
+        transform: rotateY(180deg);
+    }
+}
